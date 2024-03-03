@@ -17,6 +17,7 @@ mongoose.connect("mongodb://mongo_db:27017/",{'dbName':'dealershipsDB'});
 const Reviews = require('./review');
 
 const Dealerships = require('./dealership');
+const dealership = require('./dealership');
 
 try {
   Reviews.deleteMany({}).then(()=>{
@@ -76,10 +77,10 @@ app.get('/fetchDealers', async (req, res) => {
     }
   });
   
-  // Express route to fetch dealer by a particular id
-  app.get('/fetchDealer/:id', async (req, res) => {
+// Express route to fetch dealer by a particular id
+app.get('/fetchDealer/:id', async (req, res) => {
     try {
-      const dealer = await Dealerships.findById(req.params.id);
+      const dealer = await Dealerships.findById(dealership);
       if (!dealer) {
         return res.status(404).json({ message: 'Dealer not found' });
       }
