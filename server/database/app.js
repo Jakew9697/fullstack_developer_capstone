@@ -80,9 +80,10 @@ app.get('/fetchDealers', async (req, res) => {
 // Express route to fetch dealer by a particular id
 app.get('/fetchDealer/:id', async (req, res) => {
     try {
-      const dealer = await Dealerships.findById(dealership);
+      const dealer = await Dealerships.findById(Dealerships);
       if (!dealer) {
         return res.status(404).json({ message: 'Dealer not found' });
+        console.log(dealer);
       }
       res.json(dealer);
     } catch (err) {
