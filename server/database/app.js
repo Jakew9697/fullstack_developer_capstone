@@ -1,7 +1,5 @@
 /*jshint esversion: 8 */
 
-'use strict';
-
 const express = require('express');
 const mongoose = require('mongoose');
 const fs = require('fs');
