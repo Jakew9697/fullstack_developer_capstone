@@ -74,4 +74,5 @@ def get_cars(request):
 
 def get_dealerships(request, state="All"):
     endpoint = "/fetchDealers" if state == "All" else "/fetchDealers/" + state
-    dealerships = get_request(endpoint
+    dealerships = get_request(endpoint)
+    return JsonResponse(dealerships)
